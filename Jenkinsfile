@@ -1,11 +1,11 @@
 pipeline {
   environment {
-    dockerRegistry = "sanjeevkumarrao/docker-nodejs"
+    dockerRegistry = "nagasatishdocker/projects"
     dockerRegistryCredential = 'dockerhub'
     dockerImage = ''
   }
   agent any
-  tools {nodejs "node" }
+  tools {nodejs "nodejs" }
   stages {
     stage('Cloning Git') {
       steps {
@@ -17,7 +17,7 @@ pipeline {
          sh 'npm install'
        }
     }
-    stage('Test') {
+    stage('test') {
       steps {
         sh 'npm test'
       }
